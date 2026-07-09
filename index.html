@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ブラウザで毎日気軽に続けられるタイピング練習">
+  <title>TYPEFLOW | タイピング練習</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header>
+    <a class="brand" href="#"><span class="logo">T</span>TYPEFLOW</a>
+    <div class="online"><i></i>READY TO TYPE</div>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="cap">DAILY TYPING PRACTICE</p>
+      <h1>指先に、<em>リズム</em>を。</h1>
+      <p class="lead">速さよりも、まず正確に。毎日の小さな練習が、<br>あなたのタイピングを変えていきます。</p>
+    </section>
+    <section class="card" aria-label="タイピング練習">
+      <div class="toolbar">
+        <div>
+          <p class="label">PRACTICE MODE</p>
+          <div class="modes" role="group" aria-label="難易度">
+            <button class="mode on" data-mode="easy">やさしい</button>
+            <button class="mode" data-mode="normal">ふつう</button>
+            <button class="mode" data-mode="hard">むずかしい</button>
+          </div>
+        </div>
+        <div class="toolbar-actions">
+          <div class="case-switch" role="group" aria-label="アルファベットの大文字と小文字">
+            <button class="case-button on" data-case="lower" aria-pressed="true">小文字</button>
+            <button class="case-button" data-case="upper" aria-pressed="false">大文字</button>
+          </div>
+          <button class="reset" id="reset" aria-label="リセット"><span>↻</span> リセット</button>
+        </div>
+      </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><strong id="wpm">0</strong><small>WPM</small></div><i class="sep"></i>
+        <div class="stat"><strong id="accuracy">100</strong><b>%</b><small>正確性</small></div><i class="sep"></i>
+        <div class="stat"><strong id="timer">0</strong><b>s</b><small>経過時間</small></div>
+      </div>
+      <div class="typebox" id="typebox" tabindex="0" role="textbox" aria-label="表示された日本語文をローマ字で入力してください">
+        <p id="japanese"></p>
+        <p id="prompt"></p>
+        <div class="hint" id="hint"><b>A</b> キーを押してスタート</div>
+      </div>
+      <div class="track"><div id="bar"></div></div>
+      <p class="help">キーボードから直接入力できます ・ <kbd>Esc</kbd> でリセット</p>
+    </section>
+  </main>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="resultTitle" hidden>
+    <div class="result">
+      <p class="cap">SESSION COMPLETE</p><h2 id="resultTitle">よくできました。</h2><p>今日の練習結果</p>
+      <div class="result-grid"><div><strong id="rw">0</strong><span>WPM</span></div><div><strong id="ra">100%</strong><span>正確性</span></div><div><strong id="rt">0s</strong><span>時間</span></div></div>
+      <button id="again">もう一度練習する</button>
+    </div>
+  </div>
+  <footer>TYPEFLOW ・ BUILD YOUR RHYTHM, ONE KEY AT A TIME.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
